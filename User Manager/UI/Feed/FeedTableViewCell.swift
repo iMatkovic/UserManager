@@ -11,7 +11,18 @@ import UIKit
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var firstNameLabel: UILabel!
-    
+
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    var user: User? {
+        didSet {
+            firstNameLabel.text = user?.firstName
+            lastNameLabel.text = user?.lastName
+            emailLabel.text = user?.email
+        }
+    }
+
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
