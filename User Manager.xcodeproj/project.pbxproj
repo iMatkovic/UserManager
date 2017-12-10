@@ -14,9 +14,11 @@
 		2C4A5A901FDCB4D60060F56B /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4A5A8F1FDCB4D60060F56B /* Feed.storyboard */; };
 		2C4A5A921FDCB4F10060F56B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A5A911FDCB4F10060F56B /* FeedViewController.swift */; };
 		2C4A5A951FDCB6760060F56B /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A5A941FDCB6760060F56B /* FeedTableViewCell.swift */; };
+		A88EB6B40ED0F1F002C6C6B7 /* Pods_User_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2311857BB2F34FA79ED76E18 /* Pods_User_Manager.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2311857BB2F34FA79ED76E18 /* Pods_User_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4A5A741FDCB3CB0060F56B /* User Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "User Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4A5A771FDCB3CB0060F56B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C4A5A7E1FDCB3CB0060F56B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		2C4A5A8F1FDCB4D60060F56B /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		2C4A5A911FDCB4F10060F56B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		2C4A5A941FDCB6760060F56B /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		79DF2A25CFEDFDC192FE1B74 /* Pods-User Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User Manager.release.xcconfig"; path = "Pods/Target Support Files/Pods-User Manager/Pods-User Manager.release.xcconfig"; sourceTree = "<group>"; };
+		CD6390EDA310FFE22019C9B2 /* Pods-User Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User Manager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User Manager/Pods-User Manager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88EB6B40ED0F1F002C6C6B7 /* Pods_User_Manager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C8A7A280F0B57CA77629A83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2311857BB2F34FA79ED76E18 /* Pods_User_Manager.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2C4A5A6B1FDCB3CB0060F56B = {
 			isa = PBXGroup;
 			children = (
 				2C4A5A761FDCB3CB0060F56B /* User Manager */,
 				2C4A5A751FDCB3CB0060F56B /* Products */,
+				43B42C0D0A03F79FAB959694 /* Pods */,
+				1C8A7A280F0B57CA77629A83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +109,15 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
+		43B42C0D0A03F79FAB959694 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD6390EDA310FFE22019C9B2 /* Pods-User Manager.debug.xcconfig */,
+				79DF2A25CFEDFDC192FE1B74 /* Pods-User Manager.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,9 +125,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C4A5A861FDCB3CB0060F56B /* Build configuration list for PBXNativeTarget "User Manager" */;
 			buildPhases = (
+				A866CDB8CFD99F8DD2ADCE0A /* [CP] Check Pods Manifest.lock */,
 				2C4A5A701FDCB3CB0060F56B /* Sources */,
 				2C4A5A711FDCB3CB0060F56B /* Frameworks */,
 				2C4A5A721FDCB3CB0060F56B /* Resources */,
+				24D3239FC6E28DF3EAA3665F /* [CP] Embed Pods Frameworks */,
+				A95B93F7383515758F0EB7FD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -160,6 +187,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24D3239FC6E28DF3EAA3665F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-User Manager/Pods-User Manager-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-User Manager/Pods-User Manager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A866CDB8CFD99F8DD2ADCE0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-User Manager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A95B93F7383515758F0EB7FD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-User Manager/Pods-User Manager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C4A5A701FDCB3CB0060F56B /* Sources */ = {
@@ -296,6 +377,7 @@
 		};
 		2C4A5A871FDCB3CB0060F56B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD6390EDA310FFE22019C9B2 /* Pods-User Manager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -311,6 +393,7 @@
 		};
 		2C4A5A881FDCB3CB0060F56B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79DF2A25CFEDFDC192FE1B74 /* Pods-User Manager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
