@@ -57,9 +57,12 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let user = viewModel.users[indexPath.row]
 
-            showDeleteAlert(id: user.id, fullName: "\(user.firstName) \(user.lastName)")
+            guard let user = viewModel.itemAt(index: indexPath.row) else {
+                return
+            }
+
+            showDeleteAlert(id: user.id, fullName: user.fullName)
         }
     }
 

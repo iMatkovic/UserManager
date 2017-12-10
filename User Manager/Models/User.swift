@@ -18,6 +18,10 @@ struct User: Codable {
     var lastName: String
     var email: String
 
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
+
     enum CodingKeys: String, CodingKey {
         case id = "sifra"
         case firstName = "ime"
