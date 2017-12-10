@@ -10,6 +10,10 @@
 		2C4A5A781FDCB3CB0060F56B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A5A771FDCB3CB0060F56B /* AppDelegate.swift */; };
 		2C4A5A7F1FDCB3CB0060F56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C4A5A7E1FDCB3CB0060F56B /* Assets.xcassets */; };
 		2C4A5A821FDCB3CB0060F56B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4A5A801FDCB3CB0060F56B /* LaunchScreen.storyboard */; };
+		2C4A5A8E1FDCB4C40060F56B /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A5A8D1FDCB4C40060F56B /* FeedViewModel.swift */; };
+		2C4A5A901FDCB4D60060F56B /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4A5A8F1FDCB4D60060F56B /* Feed.storyboard */; };
+		2C4A5A921FDCB4F10060F56B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A5A911FDCB4F10060F56B /* FeedViewController.swift */; };
+		2C4A5A951FDCB6760060F56B /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A5A941FDCB6760060F56B /* FeedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +22,10 @@
 		2C4A5A7E1FDCB3CB0060F56B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C4A5A811FDCB3CB0060F56B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C4A5A831FDCB3CB0060F56B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C4A5A8D1FDCB4C40060F56B /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		2C4A5A8F1FDCB4D60060F56B /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		2C4A5A911FDCB4F10060F56B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		2C4A5A941FDCB6760060F56B /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				2C4A5A771FDCB3CB0060F56B /* AppDelegate.swift */,
+				2C4A5A831FDCB3CB0060F56B /* Info.plist */,
+				2C4A5A8C1FDCB4AD0060F56B /* UI */,
 				2C4A5A891FDCB4570060F56B /* SupportingFiles */,
 			);
 			path = "User Manager";
@@ -59,11 +69,29 @@
 		2C4A5A891FDCB4570060F56B /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				2C4A5A831FDCB3CB0060F56B /* Info.plist */,
 				2C4A5A801FDCB3CB0060F56B /* LaunchScreen.storyboard */,
 				2C4A5A7E1FDCB3CB0060F56B /* Assets.xcassets */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		2C4A5A8C1FDCB4AD0060F56B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2C4A5A931FDCB4F70060F56B /* Feed */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2C4A5A931FDCB4F70060F56B /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				2C4A5A8F1FDCB4D60060F56B /* Feed.storyboard */,
+				2C4A5A911FDCB4F10060F56B /* FeedViewController.swift */,
+				2C4A5A8D1FDCB4C40060F56B /* FeedViewModel.swift */,
+				2C4A5A941FDCB6760060F56B /* FeedTableViewCell.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +155,7 @@
 			files = (
 				2C4A5A821FDCB3CB0060F56B /* LaunchScreen.storyboard in Resources */,
 				2C4A5A7F1FDCB3CB0060F56B /* Assets.xcassets in Resources */,
+				2C4A5A901FDCB4D60060F56B /* Feed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +167,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4A5A781FDCB3CB0060F56B /* AppDelegate.swift in Sources */,
+				2C4A5A951FDCB6760060F56B /* FeedTableViewCell.swift in Sources */,
+				2C4A5A921FDCB4F10060F56B /* FeedViewController.swift in Sources */,
+				2C4A5A8E1FDCB4C40060F56B /* FeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
