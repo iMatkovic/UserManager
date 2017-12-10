@@ -7,6 +7,10 @@
 //
 
 import Foundation
+enum UserType: String {
+    case admin = "admin"
+    case normal = "oper"
+}
 struct User: Codable {
 
     var id: String

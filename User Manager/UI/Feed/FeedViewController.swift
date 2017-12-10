@@ -14,6 +14,11 @@ class FeedViewController: UIViewController {
 
     private var viewModel: FeedViewModel!
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getUsers()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +28,6 @@ class FeedViewController: UIViewController {
         self.title = "Users"
 
         viewModel = FeedViewModel(userService: UserService())
-        viewModel.getUsers()
 
         viewModel.onComplete = { [weak self] in
             self?.tableView.reloadData()
@@ -39,6 +43,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         return viewModel.users.count
     }
 
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedTableViewCell
@@ -48,6 +53,31 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let user = viewModel.users[indexPath.row]
+
+            showDeleteAlert(id: user.id, fullName: "\(user.firstName) \(user.lastName)")
+        }
+    }
+
+
+    func showDeleteAlert(id: String, fullName: String) {
+        let alert = UIAlertController(title: "Delete", message: "Are you sure you want permantently delete \(fullName)", preferredStyle: .actionSheet)
+
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            self?.viewModel.deleteUser(id: id)
+        }
+
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+
+        self.present(alert, animated: true)
+
     }
 
 }

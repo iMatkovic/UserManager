@@ -17,6 +17,8 @@
 		2C9BB3A71FDCBB2700F990BA /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BB3A61FDCBB2700F990BA /* UserService.swift */; };
 		2C9BB3AA1FDCBF4100F990BA /* ApiPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BB3A91FDCBF4100F990BA /* ApiPaths.swift */; };
 		2C9BB3AD1FDCC07B00F990BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BB3AC1FDCC07B00F990BA /* User.swift */; };
+		2C9BB3B01FDDE14200F990BA /* AddUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BB3AF1FDDE14200F990BA /* AddUserViewModel.swift */; };
+		2C9BB3B21FDDE15800F990BA /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BB3B11FDDE15800F990BA /* AddUserViewController.swift */; };
 		A88EB6B40ED0F1F002C6C6B7 /* Pods_User_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2311857BB2F34FA79ED76E18 /* Pods_User_Manager.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		2C9BB3A61FDCBB2700F990BA /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		2C9BB3A91FDCBF4100F990BA /* ApiPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPaths.swift; sourceTree = "<group>"; };
 		2C9BB3AC1FDCC07B00F990BA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2C9BB3AF1FDDE14200F990BA /* AddUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewModel.swift; sourceTree = "<group>"; };
+		2C9BB3B11FDDE15800F990BA /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		79DF2A25CFEDFDC192FE1B74 /* Pods-User Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User Manager.release.xcconfig"; path = "Pods/Target Support Files/Pods-User Manager/Pods-User Manager.release.xcconfig"; sourceTree = "<group>"; };
 		CD6390EDA310FFE22019C9B2 /* Pods-User Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User Manager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User Manager/Pods-User Manager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,11 +85,11 @@
 			children = (
 				2C4A5A771FDCB3CB0060F56B /* AppDelegate.swift */,
 				2C4A5A831FDCB3CB0060F56B /* Info.plist */,
+				2C9BB3A91FDCBF4100F990BA /* ApiPaths.swift */,
 				2C9BB3AB1FDCC06D00F990BA /* Models */,
 				2C9BB3A51FDCBB0D00F990BA /* Services */,
 				2C4A5A8C1FDCB4AD0060F56B /* UI */,
 				2C4A5A891FDCB4570060F56B /* SupportingFiles */,
-				2C9BB3A91FDCBF4100F990BA /* ApiPaths.swift */,
 			);
 			path = "User Manager";
 			sourceTree = "<group>";
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				2C4A5A931FDCB4F70060F56B /* Feed */,
+				2C9BB3AE1FDDE11F00F990BA /* AddUser */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -132,6 +137,15 @@
 				2C9BB3AC1FDCC07B00F990BA /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2C9BB3AE1FDDE11F00F990BA /* AddUser */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BB3B11FDDE15800F990BA /* AddUserViewController.swift */,
+				2C9BB3AF1FDDE14200F990BA /* AddUserViewModel.swift */,
+			);
+			path = AddUser;
 			sourceTree = "<group>";
 		};
 		43B42C0D0A03F79FAB959694 /* Pods */ = {
@@ -273,10 +287,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4A5A781FDCB3CB0060F56B /* AppDelegate.swift in Sources */,
+				2C9BB3B21FDDE15800F990BA /* AddUserViewController.swift in Sources */,
 				2C9BB3A71FDCBB2700F990BA /* UserService.swift in Sources */,
 				2C4A5A951FDCB6760060F56B /* FeedTableViewCell.swift in Sources */,
 				2C4A5A921FDCB4F10060F56B /* FeedViewController.swift in Sources */,
 				2C4A5A8E1FDCB4C40060F56B /* FeedViewModel.swift in Sources */,
+				2C9BB3B01FDDE14200F990BA /* AddUserViewModel.swift in Sources */,
 				2C9BB3AA1FDCBF4100F990BA /* ApiPaths.swift in Sources */,
 				2C9BB3AD1FDCC07B00F990BA /* User.swift in Sources */,
 			);
@@ -411,6 +427,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6E5KB66DD6;
 				INFOPLIST_FILE = "User Manager/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "imatkovic.User-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,6 +444,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6E5KB66DD6;
 				INFOPLIST_FILE = "User Manager/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "imatkovic.User-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -34,6 +34,13 @@ class FeedViewModel {
         return index < users.count || index > users.count - 1 ? users[index] : nil
     }
 
+    func deleteUser(id: String) {
+        userService.deleteUser(id: id) { [weak self] in
+            self?.getUsers()
+        }
+    }
+
+
     private func filter(_ users: [User]) -> [User] {
         return users.filter { !$0.firstName.isEmpty }
     }

@@ -9,15 +9,14 @@
 import Foundation
 import Alamofire
 protocol UserServiceProtocol {
+
     func getAllUsers(onComplete: @escaping ([User]) -> ())
+    func createUser(firstName: String, lastName: String, email: String, type: UserType, onComplete: @escaping (() -> Void))
+    func deleteUser(id: String, onComplete: @escaping (() -> Void))
+
 }
 
 class UserService: UserServiceProtocol {
-
-
-    func get() {
-
-    }
 
     func getAllUsers(onComplete: @escaping ([User]) -> ()) {
         Alamofire.request(ApiPaths.getUser).responseData { response in
@@ -29,7 +28,42 @@ class UserService: UserServiceProtocol {
                 print("Something wrong happened")
             }
         }
-
     }
+
+    func createUser(firstName: String, lastName: String, email: String, type: UserType, onComplete: @escaping (() -> Void)) {
+
+        let params = ["ime": firstName,
+            "prezime": lastName,
+            "email": email,
+            "uloga": type.rawValue]
+
+        Alamofire.request(ApiPaths.createUser, method: .post, parameters: params, encoding: JSONEncoding.default)
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    onComplete()
+                case .failure(let error):
+                    print(error)
+                }
+        }
+    }
+
+    func deleteUser(id: String, onComplete: @escaping (() -> Void)) {
+
+        let params = ["sifra": id]
+
+        Alamofire.request(ApiPaths.deleteUser, method: .post, parameters: params, encoding: JSONEncoding.default)
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    onComplete()
+                case .failure(let error):
+                    print(error)
+                }
+        }
+    }
+
+
+
 }
 
