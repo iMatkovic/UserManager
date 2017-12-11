@@ -83,4 +83,20 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        guard let user = viewModel.itemAt(index: indexPath.row) else {
+            return
+        }
+
+
+        let storyboard = UIStoryboard(name: "Feed", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "FeedDetailsViewController") as! FeedDetailsViewController
+
+        let feedDetailsViewModel = FeedDetailsViewModel.init(userId: user.id, userService: UserService())
+        viewController.viewModel = feedDetailsViewModel
+
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
 }

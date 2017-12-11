@@ -13,7 +13,8 @@ protocol UserServiceProtocol {
     func getAllUsers(onComplete: @escaping ([User]) -> ())
     func createUser(firstName: String, lastName: String, email: String, type: UserType, onComplete: @escaping (() -> Void))
     func deleteUser(id: String, onComplete: @escaping (() -> Void))
-
+    func getUserDetails(id: String, onComplete: @escaping (User) -> ())
+    
 }
 
 class UserService: UserServiceProtocol {
@@ -60,6 +61,18 @@ class UserService: UserServiceProtocol {
                 case .failure(let error):
                     print(error)
                 }
+        }
+    }
+
+    func getUserDetails(id: String, onComplete: @escaping (User) -> ()) {
+        Alamofire.request(ApiPaths.getUserDetails(id: id)).responseData { response in
+            switch response.result {
+            case .success(let user):
+                let decoded = try! JSONDecoder().decode(User.self, from: user)
+                onComplete(decoded)
+            case .failure:
+                print("Something wrong happened")
+            }
         }
     }
 

@@ -19,6 +19,8 @@
 		2C9BB3AD1FDCC07B00F990BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BB3AC1FDCC07B00F990BA /* User.swift */; };
 		2C9BB3B01FDDE14200F990BA /* AddUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BB3AF1FDDE14200F990BA /* AddUserViewModel.swift */; };
 		2C9BB3B21FDDE15800F990BA /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BB3B11FDDE15800F990BA /* AddUserViewController.swift */; };
+		2C9BB3BC1FDEBC8D00F990BA /* FeedDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BB3BB1FDEBC8D00F990BA /* FeedDetailsViewModel.swift */; };
+		2C9BB3BE1FDEBD5600F990BA /* FeedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9BB3BD1FDEBD5600F990BA /* FeedDetailsViewController.swift */; };
 		A88EB6B40ED0F1F002C6C6B7 /* Pods_User_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2311857BB2F34FA79ED76E18 /* Pods_User_Manager.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		2C9BB3AC1FDCC07B00F990BA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2C9BB3AF1FDDE14200F990BA /* AddUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewModel.swift; sourceTree = "<group>"; };
 		2C9BB3B11FDDE15800F990BA /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
+		2C9BB3BB1FDEBC8D00F990BA /* FeedDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailsViewModel.swift; sourceTree = "<group>"; };
+		2C9BB3BD1FDEBD5600F990BA /* FeedDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailsViewController.swift; sourceTree = "<group>"; };
 		79DF2A25CFEDFDC192FE1B74 /* Pods-User Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User Manager.release.xcconfig"; path = "Pods/Target Support Files/Pods-User Manager/Pods-User Manager.release.xcconfig"; sourceTree = "<group>"; };
 		CD6390EDA310FFE22019C9B2 /* Pods-User Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User Manager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User Manager/Pods-User Manager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +93,7 @@
 				2C9BB3AB1FDCC06D00F990BA /* Models */,
 				2C9BB3A51FDCBB0D00F990BA /* Services */,
 				2C4A5A8C1FDCB4AD0060F56B /* UI */,
+				2C9BB3BF1FDEC06A00F990BA /* FeedDetails */,
 				2C4A5A891FDCB4570060F56B /* SupportingFiles */,
 			);
 			path = "User Manager";
@@ -106,6 +111,7 @@
 		2C4A5A8C1FDCB4AD0060F56B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2C4A5A8F1FDCB4D60060F56B /* Feed.storyboard */,
 				2C4A5A931FDCB4F70060F56B /* Feed */,
 				2C9BB3AE1FDDE11F00F990BA /* AddUser */,
 			);
@@ -115,7 +121,6 @@
 		2C4A5A931FDCB4F70060F56B /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				2C4A5A8F1FDCB4D60060F56B /* Feed.storyboard */,
 				2C4A5A911FDCB4F10060F56B /* FeedViewController.swift */,
 				2C4A5A8D1FDCB4C40060F56B /* FeedViewModel.swift */,
 				2C4A5A941FDCB6760060F56B /* FeedTableViewCell.swift */,
@@ -146,6 +151,15 @@
 				2C9BB3AF1FDDE14200F990BA /* AddUserViewModel.swift */,
 			);
 			path = AddUser;
+			sourceTree = "<group>";
+		};
+		2C9BB3BF1FDEC06A00F990BA /* FeedDetails */ = {
+			isa = PBXGroup;
+			children = (
+				2C9BB3BD1FDEBD5600F990BA /* FeedDetailsViewController.swift */,
+				2C9BB3BB1FDEBC8D00F990BA /* FeedDetailsViewModel.swift */,
+			);
+			path = FeedDetails;
 			sourceTree = "<group>";
 		};
 		43B42C0D0A03F79FAB959694 /* Pods */ = {
@@ -291,9 +305,11 @@
 				2C9BB3A71FDCBB2700F990BA /* UserService.swift in Sources */,
 				2C4A5A951FDCB6760060F56B /* FeedTableViewCell.swift in Sources */,
 				2C4A5A921FDCB4F10060F56B /* FeedViewController.swift in Sources */,
+				2C9BB3BC1FDEBC8D00F990BA /* FeedDetailsViewModel.swift in Sources */,
 				2C4A5A8E1FDCB4C40060F56B /* FeedViewModel.swift in Sources */,
 				2C9BB3B01FDDE14200F990BA /* AddUserViewModel.swift in Sources */,
 				2C9BB3AA1FDCBF4100F990BA /* ApiPaths.swift in Sources */,
+				2C9BB3BE1FDEBD5600F990BA /* FeedDetailsViewController.swift in Sources */,
 				2C9BB3AD1FDCC07B00F990BA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

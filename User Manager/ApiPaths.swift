@@ -13,4 +13,8 @@ struct ApiPaths {
     static let editUser = "http://it.ffos.hr/P11617/tjakopec/P3/Programiranje3API/update"
     static let deleteUser = "http://it.ffos.hr/P11617/tjakopec/P3/Programiranje3API/delete"
     static let searchUser = "http://it.ffos.hr/P11617/tjakopec/P3/Programiranje3API/search/an"
+
+    static func getUserDetails(id: String) -> String {
+        return "http://it.ffos.hr/P11617/tjakopec/P3/Programiranje3API/read/" + id
+    }
 }
