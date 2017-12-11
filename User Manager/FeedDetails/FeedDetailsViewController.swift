@@ -17,10 +17,13 @@ class FeedDetailsViewController: UIViewController {
 
     var viewModel: FeedDetailsViewModel!
 
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.getUserDetails()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getUserDetails()
+
 
         viewModel.onComplete = { [weak self] user in
             self?.firstNameLabel.text = user.firstName
@@ -29,5 +32,18 @@ class FeedDetailsViewController: UIViewController {
         }
 
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editUser" {
+            print(segue.destination)
+            let vc = segue.destination as? AddUserViewController
+            guard let user = viewModel.user else { return }
+            let addUserViewModel = AddUserViewModel(user, UserService())
+            vc?.viewModel = addUserViewModel
+        }
+    }
+
+
+
 
 }

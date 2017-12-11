@@ -14,7 +14,8 @@ protocol UserServiceProtocol {
     func createUser(firstName: String, lastName: String, email: String, type: UserType, onComplete: @escaping (() -> Void))
     func deleteUser(id: String, onComplete: @escaping (() -> Void))
     func getUserDetails(id: String, onComplete: @escaping (User) -> ())
-    
+    func updateUser(id: String, firstName: String, lastName: String, email: String, type: UserType, onComplete: @escaping (() -> Void))
+
 }
 
 class UserService: UserServiceProtocol {
@@ -73,6 +74,25 @@ class UserService: UserServiceProtocol {
             case .failure:
                 print("Something wrong happened")
             }
+        }
+    }
+
+    func updateUser(id: String, firstName: String, lastName: String, email: String, type: UserType, onComplete: @escaping (() -> Void)) {
+
+        let params = ["sifra": id,
+            "ime": firstName,
+            "prezime": lastName,
+            "email": email,
+            "uloga": type.rawValue]
+
+        Alamofire.request(ApiPaths.editUser, method: .post, parameters: params, encoding: JSONEncoding.default)
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    onComplete()
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
 

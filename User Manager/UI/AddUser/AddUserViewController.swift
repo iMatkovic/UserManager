@@ -29,24 +29,38 @@ class AddUserViewController: UIViewController {
 
         let isAdmin = isAdminSwitch.isOn
 
-        viewModel.registerUser(firstName: firstName, lastName: lastName, email: email, isAdmin: isAdmin)
+        viewModel?.createUser(firstName: firstName, lastName: lastName, email: email, isAdmin: isAdmin)
 
 
     }
 
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true)
+        dismiss()
     }
 
-    var viewModel: AddUserViewModel!
+    private func dismiss() {
+
+        if viewModel?.type == .existing {
+            navigationController?.popViewController(animated: true)
+        } else {
+            dismiss(animated: true)
+        }
+
+    }
+
+    var viewModel: AddUserViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = AddUserViewModel(UserService())
+
+        if viewModel == nil {
+            self.viewModel = AddUserViewModel(UserService())
+        }
+
         configure()
 
-        viewModel.onComplete = { [weak self] in
-            self?.dismiss(animated: true)
+        viewModel?.onComplete = { [weak self] in
+            self?.dismiss()
         }
     }
 
@@ -56,6 +70,14 @@ class AddUserViewController: UIViewController {
         emailTextField.placeholder = "Email"
         isAdminLabel.text = "Is user admin?"
         isAdminSwitch.isOn = false
+
+        if let user = viewModel?.user {
+            firstNameTextField.text = user.firstName
+            lastNameTextField.text = user.lastName
+            emailTextField.text = user.email
+            //isAdminSwitch.isOn =
+        }
+
     }
 
 }

@@ -12,7 +12,7 @@ class FeedDetailsViewModel {
     var userId: String?
     var userService: UserServiceProtocol!
     var onComplete: ((User) -> Void)?
-    
+    var user: User?
     
     init(userId: String, userService: UserServiceProtocol) {
         self.userId = userId
@@ -26,6 +26,7 @@ class FeedDetailsViewModel {
         }
 
         userService.getUserDetails(id: id) { [weak self] user in
+            self?.user = user
             self?.onComplete?(user)
         }
     }
