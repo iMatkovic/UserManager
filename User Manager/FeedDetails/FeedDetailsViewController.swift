@@ -38,7 +38,6 @@ class FeedDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "editUser" {
-            print(segue.destination)
             guard let user = viewModel.user, let nc = segue.destination as? UINavigationController,
                 let vc = nc.viewControllers.first as? AddUserViewController else { return }
 

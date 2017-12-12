@@ -45,9 +45,11 @@ class FeedViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "addUser" {
+           
             guard let nc = segue.destination as? UINavigationController,
                 let vc = nc.viewControllers.first as? AddUserViewController
                 else { return }
+            
             let addUserViewModel = AddUserViewModel(UserService())
             vc.viewModel = addUserViewModel
         }
