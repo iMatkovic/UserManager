@@ -15,6 +15,7 @@ protocol UserServiceProtocol {
     func deleteUser(id: String, onComplete: @escaping (() -> Void))
     func getUserDetails(id: String, onComplete: @escaping (User) -> ())
     func updateUser(id: String, firstName: String, lastName: String, email: String, type: UserType, onComplete: @escaping (() -> Void))
+    func search(query: String, onComplete: @escaping ([User]) -> ())
 
 }
 
@@ -96,7 +97,17 @@ class UserService: UserServiceProtocol {
         }
     }
 
-
+    func search(query: String, onComplete: @escaping ([User]) -> ()) {
+        Alamofire.request(ApiPaths.search(query: query)).responseData { response in
+            switch response.result {
+            case .success(let data):
+                let decoded = try! JSONDecoder().decode([User].self, from: data)
+                onComplete(decoded)
+            case .failure:
+                print("Something wrong happened")
+            }
+        }
+    }
 
 }
 

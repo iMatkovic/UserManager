@@ -11,8 +11,14 @@ import UIKit
 class FeedViewController: UIViewController {
 
 
+    struct Constants {
+        static let searchBarFrameHeight: CGFloat = 44.0
+    }
+
+
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
 
 
     //MARK: - Dependencies
@@ -33,6 +39,7 @@ class FeedViewController: UIViewController {
 
         self.title = "Users"
 
+        searchBarSetup()
         viewModel = FeedViewModel(userService: UserService())
 
         viewModel.onComplete = { [weak self] in
@@ -40,16 +47,34 @@ class FeedViewController: UIViewController {
         }
     }
 
+    private func searchBarSetup() {
+        searchBar.delegate = self
+        tableView.contentOffset.y = searchBar.frame.height
+        searchBar.placeholder = "Search users"
+        searchBar.searchBarStyle = .minimal
+        searchBar.showsCancelButton = true
+    
+    }
+
+    func hideSearchBar() {
+        UIView.animate(withDuration: 0.4) { [weak self] in
+            self?.searchBar.text = ""
+            self?.searchBar.endEditing(true)
+            self?.tableView.contentOffset.y = self?.searchBar.frame.height ?? Constants.searchBarFrameHeight
+        }
+
+    }
+
 
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "addUser" {
-           
+
             guard let nc = segue.destination as? UINavigationController,
                 let vc = nc.viewControllers.first as? AddUserViewController
                 else { return }
-            
+
             let addUserViewModel = AddUserViewModel(UserService())
             vc.viewModel = addUserViewModel
         }
@@ -117,8 +142,31 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 
         let feedDetailsViewModel = FeedDetailsViewModel(userId: user.id, userService: UserService())
         viewController.viewModel = feedDetailsViewModel
+        viewController.title = "Add user"
 
         navigationController?.pushViewController(viewController, animated: true)
     }
+
+}
+
+extension FeedViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        guard let query = searchBar.text else {
+            return
+        }
+        viewModel.searchUsers(query: query)
+        searchBar.endEditing(true)
+    }
+
+    func searchBarCancelButtonClicked(_: UISearchBar) {
+        hideSearchBar()
+        viewModel.getUsers()
+    }
+
+//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//        searchBar.endEditing(true)
+//    }
 
 }

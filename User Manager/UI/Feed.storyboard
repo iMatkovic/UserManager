@@ -21,9 +21,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3bl-iB-fcj">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="pYn-p5-L4x">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="100" id="sKK-Na-Agp" customClass="FeedTableViewCell" customModule="User_Manager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="84" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sKK-Na-Agp" id="pfA-D3-0Hm">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
@@ -78,7 +83,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8YB-0U-mpl" firstAttribute="bottom" secondItem="3bl-iB-fcj" secondAttribute="bottom" id="5kt-by-wey"/>
-                            <constraint firstItem="3bl-iB-fcj" firstAttribute="top" secondItem="8YB-0U-mpl" secondAttribute="top" id="Y0y-SF-qWz"/>
+                            <constraint firstItem="3bl-iB-fcj" firstAttribute="top" secondItem="8YB-0U-mpl" secondAttribute="top" id="sIN-Dw-JT3"/>
                             <constraint firstItem="3bl-iB-fcj" firstAttribute="leading" secondItem="8YB-0U-mpl" secondAttribute="leading" id="vMR-PW-P4c"/>
                             <constraint firstItem="8YB-0U-mpl" firstAttribute="trailing" secondItem="3bl-iB-fcj" secondAttribute="trailing" id="y5y-0Z-Pf7"/>
                         </constraints>
@@ -92,12 +97,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="pYn-p5-L4x" id="rUp-DH-6st"/>
                         <outlet property="tableView" destination="3bl-iB-fcj" id="hPo-4r-wgn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIb-Aq-2KD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1183" y="-76"/>
+            <point key="canvasLocation" x="1181.5999999999999" y="-76.011994002998506"/>
         </scene>
         <!--Title-->
         <scene sceneID="Hpa-g5-ZZd">

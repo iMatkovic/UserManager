@@ -31,6 +31,14 @@ class FeedViewModel {
         }
     }
 
+    func searchUsers(query: String) {
+        userService.search(query: query) { [weak self] usersResult in
+            self?.users = self?.filter(usersResult) ?? []
+            self?.onComplete?()
+        }
+    }
+
+
     func userCount() -> Int {
         return users.count
     }
@@ -51,3 +59,4 @@ class FeedViewModel {
     }
 
 }
+

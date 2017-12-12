@@ -43,6 +43,7 @@ class FeedDetailsViewController: UIViewController {
 
             let addUserViewModel = AddUserViewModel(user, UserService())
             vc.viewModel = addUserViewModel
+            vc.title = "Edit user"
         }
     }
 }

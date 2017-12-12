@@ -8,7 +8,7 @@
 
 import Foundation
 struct ApiPaths {
-    
+
     static let getUser = "http://it.ffos.hr/P11617/tjakopec/P3/Programiranje3API/read"
     static let createUser = "http://it.ffos.hr/P11617/tjakopec/P3/Programiranje3API/create"
     static let editUser = "http://it.ffos.hr/P11617/tjakopec/P3/Programiranje3API/update"
@@ -17,5 +17,9 @@ struct ApiPaths {
 
     static func getUserDetails(id: String) -> String {
         return "http://it.ffos.hr/P11617/tjakopec/P3/Programiranje3API/read/" + id
+    }
+
+    static func search(query: String) -> String {
+        return "http://it.ffos.hr/P11617/tjakopec/P3/Programiranje3API/search/" + query
     }
 }
