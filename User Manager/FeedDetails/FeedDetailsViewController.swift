@@ -14,6 +14,8 @@ class FeedDetailsViewController: UIViewController {
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var signInDate: UILabel!
+    @IBOutlet weak var userTypeImage: UIImageView!
 
     //MARK: - Dependencies
     var viewModel: FeedDetailsViewModel!
@@ -31,6 +33,14 @@ class FeedDetailsViewController: UIViewController {
             self?.firstNameLabel.text = user.firstName
             self?.lastNameLabel.text = user.lastName
             self?.emailLabel.text = user.email
+            self?.signInDate.text = user.signIn
+
+            if user.type == .admin {
+                self?.userTypeImage.image = #imageLiteral(resourceName: "starFilled")
+            } else {
+                self?.userTypeImage.image = #imageLiteral(resourceName: "star")
+            }
+
         }
     }
 

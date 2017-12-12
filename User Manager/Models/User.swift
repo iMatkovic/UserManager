@@ -18,6 +18,7 @@ struct User: Codable {
     let lastName: String
     let email: String
     let type: UserType
+    let signIn: String
 
     var fullName: String {
         return "\(firstName) \(lastName)"
@@ -34,5 +35,6 @@ struct User: Codable {
         case lastName = "prezime"
         case email
         case type = "uloga"
+        case signIn = "datumprijave"
     }
 }

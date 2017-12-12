@@ -15,21 +15,21 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var userTypeIcon: UIImageView!
-
+   
     //MARK: - Data
     var user: User? {
         didSet {
             firstNameLabel.text = user?.firstName
             lastNameLabel.text = user?.lastName
             emailLabel.text = user?.email
+        
 
             if user?.type == .admin {
                 userTypeIcon.image = #imageLiteral(resourceName: "starFilled")
             } else {
                 userTypeIcon.image = #imageLiteral(resourceName: "star")
             }
-
-
+            
         }
     }
 
