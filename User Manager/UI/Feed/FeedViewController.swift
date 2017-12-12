@@ -34,12 +34,11 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
-
         self.title = "Users"
 
+        tableViewSetup()
         searchBarSetup()
+
         viewModel = FeedViewModel(userService: UserService())
 
         viewModel.onComplete = { [weak self] in
@@ -47,13 +46,19 @@ class FeedViewController: UIViewController {
         }
     }
 
+    //MARK: - Utility
+    fileprivate func tableViewSetup() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+
+
     private func searchBarSetup() {
         searchBar.delegate = self
         tableView.contentOffset.y = searchBar.frame.height
         searchBar.placeholder = "Search users"
         searchBar.searchBarStyle = .minimal
         searchBar.showsCancelButton = true
-    
     }
 
     func hideSearchBar() {
@@ -164,9 +169,5 @@ extension FeedViewController: UISearchBarDelegate {
         hideSearchBar()
         viewModel.getUsers()
     }
-
-//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//        searchBar.endEditing(true)
-//    }
 
 }
