@@ -10,10 +10,16 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
+
+    //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
 
+
+    //MARK: - Dependencies
     private var viewModel: FeedViewModel!
 
+
+    //MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.getUsers()
@@ -33,6 +39,20 @@ class FeedViewController: UIViewController {
             self?.tableView.reloadData()
         }
     }
+
+
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "addUser" {
+            guard let nc = segue.destination as? UINavigationController,
+                let vc = nc.viewControllers.first as? AddUserViewController
+                else { return }
+            let addUserViewModel = AddUserViewModel(UserService())
+            vc.viewModel = addUserViewModel
+        }
+    }
+
 
 }
 //MARK: - Extensions
@@ -93,7 +113,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "Feed", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "FeedDetailsViewController") as! FeedDetailsViewController
 
-        let feedDetailsViewModel = FeedDetailsViewModel.init(userId: user.id, userService: UserService())
+        let feedDetailsViewModel = FeedDetailsViewModel(userId: user.id, userService: UserService())
         viewController.viewModel = feedDetailsViewModel
 
         navigationController?.pushViewController(viewController, animated: true)

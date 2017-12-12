@@ -10,10 +10,12 @@ import UIKit
 
 class FeedTableViewCell: UITableViewCell {
 
+    //MARK: - Outlets
     @IBOutlet weak var firstNameLabel: UILabel!
-
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
+
+    //MARK: - Data
     var user: User? {
         didSet {
             firstNameLabel.text = user?.firstName
@@ -22,16 +24,10 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
 
-
+    //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

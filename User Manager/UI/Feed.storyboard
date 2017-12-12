@@ -87,7 +87,7 @@
                     <navigationItem key="navigationItem" title="Title" id="Ulg-9L-sda">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sQu-9v-eEi">
                             <connections>
-                                <segue destination="zup-VI-8eS" kind="presentation" id="PAQ-ZO-1Qi"/>
+                                <segue destination="zup-VI-8eS" kind="presentation" identifier="addUser" id="PAQ-ZO-1Qi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -143,7 +143,7 @@
                     <navigationItem key="navigationItem" title="Title" id="UfH-zF-Hea">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="59w-3Q-iyO">
                             <connections>
-                                <segue destination="Isr-mj-hTq" kind="show" identifier="editUser" id="EqD-FN-Kvx"/>
+                                <segue destination="zup-VI-8eS" kind="presentation" identifier="editUser" id="gqO-9H-10y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -155,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Li1-vz-ekz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2425" y="-166"/>
+            <point key="canvasLocation" x="929" y="-1061"/>
         </scene>
         <!--Add user-->
         <scene sceneID="Lpp-sR-4sM">
@@ -166,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="hSc-De-XQP">
-                                <rect key="frame" x="20" y="120" width="335" height="244"/>
+                                <rect key="frame" x="20" y="164" width="335" height="244"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JhX-Xf-KrL">
                                         <rect key="frame" x="10" y="0.0" width="315" height="31"/>
@@ -282,6 +282,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EqD-FN-Kvx"/>
+        <segue reference="PAQ-ZO-1Qi"/>
     </inferredMetricsTieBreakers>
 </document>

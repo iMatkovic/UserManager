@@ -9,23 +9,26 @@
 import Foundation
 class AddUserViewModel {
 
-
+    //MARK: - HelperType
     enum AddUserType {
         case new
         case existing
     }
 
+    //MARK: - Properties
     var user: User?
     let type: AddUserType
-    private let userService: UserServiceProtocol!
     var onComplete: (() -> Void)?
 
 
+    //MARK: - Dependencies
+    private let userService: UserServiceProtocol!
+
+    //MARK: - Inits
     init(_ userService: UserServiceProtocol) {
         self.userService = userService
         type = .new
     }
-
 
     init(_ user: User, _ userService: UserServiceProtocol) {
         self.user = user
@@ -33,6 +36,8 @@ class AddUserViewModel {
         type = .existing
     }
 
+
+    //MARK: - Public methods
     func createUser(firstName: String, lastName: String, email: String, isAdmin: Bool) {
 
         let userType = isAdmin ? UserType.admin : UserType.normal

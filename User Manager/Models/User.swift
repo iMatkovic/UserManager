@@ -7,25 +7,32 @@
 //
 
 import Foundation
-enum UserType: String {
+enum UserType: String, Codable {
     case admin = "admin"
     case normal = "oper"
 }
 struct User: Codable {
 
-    var id: String
-    var firstName: String
-    var lastName: String
-    var email: String
+    let id: String
+    let firstName: String
+    let lastName: String
+    let email: String
+    let type: UserType
 
     var fullName: String {
         return "\(firstName) \(lastName)"
     }
+
+    var isAdmin: Bool {
+        return type == .admin
+    }
+
 
     enum CodingKeys: String, CodingKey {
         case id = "sifra"
         case firstName = "ime"
         case lastName = "prezime"
         case email
+        case type = "uloga"
     }
 }

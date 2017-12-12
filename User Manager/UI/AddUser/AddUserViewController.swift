@@ -10,6 +10,7 @@ import UIKit
 
 class AddUserViewController: UIViewController {
 
+    //MARK: - Outlets
     @IBOutlet weak var saveUserButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -19,6 +20,7 @@ class AddUserViewController: UIViewController {
     @IBOutlet weak var isAdminSwitch: UISwitch!
 
 
+    //MARK: - User Interactions
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
 
         guard let firstName = firstNameTextField.text,
@@ -30,40 +32,27 @@ class AddUserViewController: UIViewController {
         let isAdmin = isAdminSwitch.isOn
 
         viewModel?.createUser(firstName: firstName, lastName: lastName, email: email, isAdmin: isAdmin)
-
-
     }
 
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        dismiss()
+        dismiss(animated: true)
     }
 
-    private func dismiss() {
 
-        if viewModel?.type == .existing {
-            navigationController?.popViewController(animated: true)
-        } else {
-            dismiss(animated: true)
-        }
+    //MARK: - Dependencies
+    var viewModel: AddUserViewModel!
 
-    }
-
-    var viewModel: AddUserViewModel?
-
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if viewModel == nil {
-            self.viewModel = AddUserViewModel(UserService())
-        }
-
         configure()
 
-        viewModel?.onComplete = { [weak self] in
-            self?.dismiss()
+        viewModel.onComplete = { [weak self] in
+            self?.dismiss(animated: true)
         }
     }
 
+    //MARK: - Utility
     private func configure() {
         firstNameTextField.placeholder = "First name"
         lastNameTextField.placeholder = "Last name"
@@ -75,7 +64,7 @@ class AddUserViewController: UIViewController {
             firstNameTextField.text = user.firstName
             lastNameTextField.text = user.lastName
             emailTextField.text = user.email
-            //isAdminSwitch.isOn =
+            isAdminSwitch.isOn = user.isAdmin
         }
 
     }

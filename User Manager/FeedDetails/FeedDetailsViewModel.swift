@@ -8,17 +8,22 @@
 
 import Foundation
 class FeedDetailsViewModel {
-
+    //MARK: - Properties
     var userId: String?
-    var userService: UserServiceProtocol!
     var onComplete: ((User) -> Void)?
     var user: User?
-    
+
+    //MARK: - Dependencies
+    var userService: UserServiceProtocol!
+
+    //MARK: - Inits
     init(userId: String, userService: UserServiceProtocol) {
         self.userId = userId
         self.userService = userService
     }
 
+
+    //MARK: - Public methods
     func getUserDetails() {
 
         guard let id = userId else {
@@ -30,6 +35,5 @@ class FeedDetailsViewModel {
             self?.onComplete?(user)
         }
     }
-
 
 }

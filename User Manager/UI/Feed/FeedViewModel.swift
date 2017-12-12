@@ -9,16 +9,21 @@
 import Foundation
 class FeedViewModel {
 
+    //MARK: - Dependencies
     private let userService: UserServiceProtocol!
 
+
+    //MARK: - Properties
     var onComplete: (() -> Void)?
     var users: [User] = []
 
 
+    //MARK: - init
     init(userService: UserServiceProtocol) {
         self.userService = userService
     }
 
+    //MARK: - Public methods
     func getUsers() {
         userService.getAllUsers { [weak self] usersResult in
             self?.users = self?.filter(usersResult) ?? []
@@ -40,7 +45,7 @@ class FeedViewModel {
         }
     }
 
-
+    //MARK: - Private methods
     private func filter(_ users: [User]) -> [User] {
         return users.filter { !$0.firstName.isEmpty }
     }
